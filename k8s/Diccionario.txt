@@ -1,0 +1,9 @@
+Crear imagenes docker-hub
+
+# docker login --username=yourhubusername --password=yourpassword (tienes que tener una cuenta)
+# docker build -t (nombre de usuario)/app1_rep:v1 . (el punto hace refrencia al dockerfile del directorio actual)
+# docker push antonio1994/app1_rep:v1 (despues hace un push)
+
+api-RABBITMQ
+
+kubectl port-forward <pod-rabbitmq> 15672:15672

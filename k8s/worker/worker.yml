@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: rabbitmq
+  labels:
+    app: worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: ismaelvp96/consumer:v4
+          env: 
+          - name: PYTHONUNBUFFERED
+            value: "1"
+          - name: QUEUE
+            value: "test"
+          - name: ROUTING_KEY
+            value: "prueba_rmq"
